@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
 
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const [Email, setEmail] = useState('')
   const [Name, setName] = useState('')
@@ -40,12 +42,11 @@ function RegisterPage() {
     dispatch(registerUser(body))
       .then(response => {
         if (response.payload.success) {
-          document.location.href="/login"
+          navigate('/login')
         } else {
             alert('회원가입 실패')
         }
     })
-
   }  
 
   return (
