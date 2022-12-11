@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { auth } from '../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function(SpecificComponent, option, adminRoute = null){
 
     //option
@@ -37,7 +38,7 @@ export default function(SpecificComponent, option, adminRoute = null){
                     }
                 }
             })
-        }, [])
+        }, [dispatch,navigate])
 
         return (
             <SpecificComponent />
